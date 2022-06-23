@@ -96,7 +96,7 @@
   justify-content: space-between;
   color: white;
   padding: 0px 10px;
-  background-color: #e52254;
+  background-color: var(--darkpink);
   border: none;
   cursor: pointer;
   font-family: "Dosis", sans-serif;

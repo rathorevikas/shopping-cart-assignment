@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import "./Cart.css";
 import CloseIcon from "@mui/icons-material/Close";
 import { useDispatch, useSelector } from "react-redux";
@@ -17,14 +17,25 @@ const Cart = ({ renderCart, renderCartHandler }) => {
   const cart = useSelector((state) => state.cart);
   const dispatch = useDispatch();
 
-  const removeButtonHandler = (item) => {
-    dispatch(decreaseCart(item));
-    dispatch(getTotal());
+  const removeButtonHandler = (event, item) => {
+    if (
+      event.type === "click" ||
+      (event.type === "keypress" && event.key === "Enter")
+    ) {
+      dispatch(decreaseCart(item));
+      dispatch(getTotal());
+    }
   };
 
-  const addButtonHandler = (item) => {
-    dispatch(addToCart(item));
-    dispatch(getTotal());
+  const addButtonHandler = (event, item) => {
+    if (
+      event.type === "click" ||
+      (event.type === "keypress" && event.key === "Enter")
+    ) {
+      dispatch(addToCart(item));
+
+      dispatch(getTotal());
+    }
   };
 
   return (
@@ -39,18 +50,21 @@ const Cart = ({ renderCart, renderCartHandler }) => {
           className="cartContainer"
           style={{ textAlign: "center", backgroundColor: "white" }}
         >
-          <div className="cartHeader">
-            <div className="heading">
-              <h3>MyCart</h3>
+          <header>
+            <div className="cartHeader">
+              <div className="heading">
+                <h3>MyCart</h3>
+              </div>
+              <div className="closeButton">
+                <CloseIcon
+                  tabIndex={0}
+                  sx={{ marginRight: "15px" }}
+                  onClick={renderCartHandler}
+                  onKeyPress={renderCartHandler}
+                />
+              </div>
             </div>
-            <div className="closeButton">
-              <CloseIcon
-                tabIndex={0}
-                sx={{ marginRight: "15px" }}
-                onClick={renderCartHandler}
-              />
-            </div>
-          </div>
+          </header>
           <div
             className="cartContent"
             style={{ textAlign: "center", marginTop: "100px" }}
@@ -62,9 +76,13 @@ const Cart = ({ renderCart, renderCartHandler }) => {
             <div
               className="checkoutButton"
               tabIndex={0}
-              onClick={() => {
+              onKeyPress={(event) => {
                 navigate("/products");
-                renderCartHandler();
+                renderCartHandler(event);
+              }}
+              onClick={(event) => {
+                navigate("/products");
+                renderCartHandler(event);
               }}
             >
               <p style={{ marginLeft: "40%" }}>Start Shopping</p>
@@ -73,19 +91,22 @@ const Cart = ({ renderCart, renderCartHandler }) => {
         </div>
       ) : (
         <div className="cartContainer">
-          <div className="cartHeader">
-            <div className="heading">
-              <h3>MyCart</h3>
-              <h5>({cart.cartTotalQuantity} items)</h5>
+          <header>
+            <div className="cartHeader">
+              <div className="heading">
+                <h3>MyCart</h3>
+                <h5>({cart.cartTotalQuantity} items)</h5>
+              </div>
+              <div className="closeButton">
+                <CloseIcon
+                  tabIndex={0}
+                  sx={{ marginRight: "15px" }}
+                  onClick={renderCartHandler}
+                  onKeyPress={renderCartHandler}
+                />
+              </div>
             </div>
-            <div className="closeButton">
-              <CloseIcon
-                tabIndex={0}
-                sx={{ marginRight: "15px" }}
-                onClick={renderCartHandler}
-              />
-            </div>
-          </div>
+          </header>
           <div className="cartContent">
             {cart.cartItems.map((item) => (
               <div className="cartItem" key={item.id}>
@@ -99,14 +120,16 @@ const Cart = ({ renderCart, renderCartHandler }) => {
                   <div className="itemButton">
                     <RemoveCircleRoundedIcon
                       tabIndex={0}
-                      sx={{ color: "#E52254" }}
-                      onClick={() => removeButtonHandler(item)}
+                      sx={{ color: "var(--darkpink)" }}
+                      onClick={(event) => removeButtonHandler(event, item)}
+                      onKeyPress={(event) => removeButtonHandler(event, item)}
                     />
                     <p>{item.itemQuantity}</p>
                     <AddCircleRoundedIcon
                       tabIndex={0}
-                      sx={{ color: "#E52254" }}
-                      onClick={() => addButtonHandler(item)}
+                      sx={{ color: "var(--darkpink)" }}
+                      onClick={(event) => addButtonHandler(event, item)}
+                      onKeyPress={(event) => addButtonHandler(event, item)}
                     />
                     <p>x</p>
                     <p>Rs.{item.price}</p>
@@ -128,9 +151,13 @@ const Cart = ({ renderCart, renderCartHandler }) => {
             <div
               className="checkoutButton"
               tabIndex={0}
-              onClick={() => {
+              onKeyPress={(event) => {
                 navigate("/");
-                renderCartHandler();
+                renderCartHandler(event);
+              }}
+              onClick={(event) => {
+                navigate("/");
+                renderCartHandler(event);
               }}
             >
               <p>Proceed to Checkout </p>

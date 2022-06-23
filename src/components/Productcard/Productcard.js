@@ -17,7 +17,7 @@ const Productcard = ({ id, name, imageURL, description, price }) => {
 
   return (
     <div className="productcard_container">
-      <div className="productHeading">
+      <div className="productHeading" tabIndex={0}>
         <h3>{name}</h3>
       </div>
       <div className="productImage">

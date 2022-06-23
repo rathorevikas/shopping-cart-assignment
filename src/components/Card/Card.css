@@ -24,7 +24,7 @@
 
 .card_button button{
     color:white;
-    background-color: #E52254;
+    background-color: var(--darkpink);
     border: none;
     padding: 10px;
     font-family: 'Dosis';

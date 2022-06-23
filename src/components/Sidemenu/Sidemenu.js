@@ -52,6 +52,7 @@ const Sidemenu = ({ filterValue, setFilterValue }) => {
         {categoryData.map((item) => (
           <button
             key={item.id}
+            tabIndex={ filterValue && filterValue !== item.id ? -1 : 0}
             className={filterValue === item.id ? "focusButton" : ""}
             name={item.name}
             id={item.id}

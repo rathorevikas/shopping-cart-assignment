@@ -4,16 +4,22 @@ import React, { useState } from "react";
 import "./Navbar.css";
 import ShoppingCartRoundedIcon from "@mui/icons-material/ShoppingCartRounded";
 import { useSelector } from "react-redux/es/exports";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import Cart from "../Cart/Cart";
+
 
 const Navbar = () => {
   const [renderCart, setRenderCart] = useState(false);
+  const navigate = useNavigate();
 
   const cart = useSelector((state) => state.cart);
 
-  const renderCartHandler = () => {
-    setRenderCart(!renderCart);
+  const renderCartHandler = (event) => {
+    if((event.type === "click" )|| (event.type === "keypress" && event.key ==="Enter") )
+    {
+      setRenderCart(!renderCart);
+    }
+
   };
 
   return (
@@ -29,7 +35,7 @@ const Navbar = () => {
         >
           <Grid item spacing={3} container>
             <Grid item xs={4} sm={3}>
-              <img src={logo} alt="logo" aria-label="logo" />
+              <img src={logo} alt="logo" aria-label="logo" onClick={() => navigate("/")} />
             </Grid>
             <Grid item xs={4} sm={6} container>
               <Grid item className="navlink_container display_none">
@@ -53,10 +59,10 @@ const Navbar = () => {
                   sx={{width:"fit-content"}}
                 >
                   <Grid item className="graybackground">
-                    <ShoppingCartRoundedIcon sx={{ color: "#E52254" }} />
+                    <ShoppingCartRoundedIcon sx={{ color: "var(--darkpink)" }} />
                   </Grid>
                   <Grid item className="graybackground">
-                    <Typography >{cart.cartTotalQuantity} items</Typography>
+                    <Typography aria-label={`${cart.cartTotalQuantity} items in cart`} >{cart.cartTotalQuantity} items</Typography>
                   </Grid>
                 </Grid>
               </Grid>
