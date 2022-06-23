@@ -1,0 +1,21 @@
+.one_edge_shadow {
+    box-shadow: 0 5px 5px -5px #333;
+    
+  }
+
+
+  .banner_container {
+    width: 100%;
+    height: 50%;
+  }
+
+  .img_container img{
+    height: 20%;
+  }
+
+  @media only screen and (max-width: 600px) {
+    .img_container img{
+        min-height: 40%;
+      }
+
+  }

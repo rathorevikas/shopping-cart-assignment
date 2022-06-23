@@ -1,0 +1,54 @@
+.card_container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 30px;
+}
+
+.card_content {
+  width: 100%;
+  margin-left: 20px;
+}
+
+.card_image {
+  width: 100%;
+}
+.card_image img {
+  width: 300px;
+  height: 200px;
+}
+
+.alternate:nth-child(even){
+  flex-direction: row-reverse;
+}
+
+.card_button button{
+    color:white;
+    background-color: #E52254;
+    border: none;
+    padding: 10px;
+    font-family: 'Dosis';
+    cursor: pointer;
+}
+
+.one_edge_shadow {
+  box-shadow: 0 5px 5px -5px #333;
+  
+}
+
+.one_edge_shadow:last-child{
+  box-shadow: none;
+}
+
+@media only screen and (max-width:550px) {
+
+  .card_container {
+    padding: 20px;
+  }
+  
+  .card_image img {
+    width: 160px;
+    height: 130px;
+  }
+
+}

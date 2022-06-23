@@ -1,0 +1,53 @@
+.sidemenu_container{
+    display: flex;
+    flex-direction: column;
+    background-color: #f0f0f0;
+    height: 100%;
+}
+
+
+
+.sidemenu_container button{
+    font-weight: 600;
+    padding: 12px;
+    border: none;
+    border-bottom: 1px solid lightgray;
+    text-align: left;
+    margin-left: 10px;
+    cursor: pointer;
+
+}
+
+.sidemenuSelect{
+    display: none;
+}
+
+.sidemenu_container button:hover{
+    color:white;
+    background-color: rgb(94, 92, 92);
+}
+
+.focusButton{
+    color:white;
+    background-color: rgb(94, 92, 92);
+}
+
+
+@media screen and (max-width:600px) {
+    .sidemenu_container{
+        display: none;
+    }
+    .sidemenuSelect{
+        display: block;
+        margin: 30px 0px;
+    }
+
+    .sidemenuSelect select {
+        padding: 15px;
+        color:white;
+        font-size: 20px;
+        background-color: #E52254;
+
+    }
+    
+}

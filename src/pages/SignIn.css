@@ -1,0 +1,43 @@
+.signin_container{
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.signin_form form{
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+}
+
+.signin_content{
+    text-align: left;
+}
+
+.form_button button{
+    width:180px;
+    color:white;
+    background-color: #E52254;
+    border: none;
+    padding: 10px;
+    margin-top: 30px;
+    font-family: 'Dosis';
+}
+
+.inputFields{
+  height: 50px;  
+  padding:10px;
+}
+
+.error{
+    color: red;
+}
+
+@media only screen and (max-width:600px){
+
+    .signin_container{
+        flex-direction: column;
+    }
+
+}

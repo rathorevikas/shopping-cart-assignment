@@ -1,0 +1,137 @@
+.cartContainer {
+  display: flex;
+  flex-direction: column;  
+  justify-content: space-between;  
+  position: absolute;
+  top: 10%;
+  left: 50%;
+  width: 450px;
+  height: 90vh;
+  background-color: #f0f0f0;
+}
+
+.cartHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  color: white;
+  background-color: black;
+}
+
+.heading {
+  display: flex;
+  margin: 0px 15px;
+}
+
+.heading h5 {
+  margin-left: 5px;
+}
+
+.cartContent {
+  height: 100%;
+  overflow: auto;
+}
+
+.cartItem {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin-top: 10px;
+  background-color: white;
+}
+
+.itemImage img {
+  width: 80px;
+  height: 80px;
+  margin-right: 10px;
+}
+
+.itemTitle h3{
+  white-space: nowrap; 
+  width: 200px; 
+  overflow: hidden;
+  text-overflow: ellipsis; 
+}
+
+.itemButton {
+  position: relative;
+  bottom: 25px;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.itemPrice {
+  width: 22%;
+  text-align: center;
+}
+
+.cheaperContent {
+  display: flex;
+  align-items: center;
+  margin: 15px;
+  background-color: white;
+}
+
+.cheaperContent img {
+  width: 100px;
+  height: 40px;
+  margin-left: 10px;
+  margin-right: 25px;
+}
+
+.checkoutContainer {
+  background-color: white;
+  text-align: center;
+}
+
+.checkoutContainer p {
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.checkoutButton {
+  display: flex;
+  margin: 15px;
+  justify-content: space-between;
+  color: white;
+  padding: 0px 10px;
+  background-color: #e52254;
+  border: none;
+  cursor: pointer;
+  font-family: "Dosis", sans-serif;
+}
+
+@media screen and (max-width: 900px) {
+  .cartContainer {
+    left: 30%;
+  }
+}
+
+@media screen and (max-width: 800px) {
+  .cartContainer {
+    width: 100%;
+    height: 100vh;
+  }
+  .cartContainer {
+    top:0%;
+    left: 0%;
+  }
+
+  .itemTitle h3{
+    white-space: nowrap; 
+    width: 300px; 
+    overflow: hidden;
+    text-overflow: ellipsis; 
+  }
+
+}
+
+@media screen and (max-width:450px) {
+  .itemTitle h3{
+    white-space: nowrap; 
+    width: 150px; 
+    overflow: hidden;
+    text-overflow: ellipsis; 
+  }
+}
