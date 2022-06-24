@@ -30,6 +30,26 @@
   cursor: pointer;
 }
 
+.loginDropdown{
+  display: none;
+}
+
+.dropdown-content {
+  position: absolute;
+  background-color: #f0f0f0;
+  min-width: 160px;
+  overflow: auto;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 2;
+}
+
+.dropdown-content a {
+  color: #545252;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
 
 .nav-edge-shadow {
   -webkit-box-shadow: 9px 8px 6px -6px #00000038;
@@ -55,4 +75,9 @@
   .cart_container {
     background-color: #f0f0f0;
   }
+
+  .loginDropdown{
+    display: inline-block;
+  }
+
 }
